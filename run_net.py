@@ -19,7 +19,7 @@ import sys
 import torch
 import torch.nn as nn
 from ignite.contrib.handlers import ProgressBar
-from align_shape import align_shape
+from util import align_shape
 from network.phnet import PHNet
 from config import get_covid_config
 
@@ -122,8 +122,8 @@ def train(args, config, data_folder="."):
     n_val = min(len(images) - n_train, int(val_frac * len(images)))
     logging.info(f"training: train {n_train} val {n_val}, folder: {data_folder}")
 
-    train_files = [{keys[0]: img, keys[1]: seg} for img, seg in zip(images[:10], labels[:10])]
-    val_files = [{keys[0]: img, keys[1]: seg} for img, seg in zip(images[-5:], labels[-5:])]
+    train_files = [{keys[0]: img, keys[1]: seg} for img, seg in zip(images[:n_train], labels[:n_train])]
+    val_files = [{keys[0]: img, keys[1]: seg} for img, seg in zip(images[-n_val:], labels[-n_val:])]
 
     # create a training data loader
     batch_size = args.batch_size
@@ -290,7 +290,7 @@ def infer(args, config, data_folder=".", prediction_folder="output"):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Run a basic UNet segmentation baseline.")
+    parser = argparse.ArgumentParser(description="Run a segmentation baseline.")
     parser.add_argument(
         "mode", metavar="mode", default="train", choices=("train", "infer"), type=str, help="mode of workflow"
     )

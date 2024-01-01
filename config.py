@@ -4,7 +4,7 @@ This file is the configuration of our network on various datasets
 def get_covid_config():
     return {
         'patch_size': (224, 224, 28),
-        'res_ratio': 6/0.74,  # res_ratio = resolution xy axis / resolution z axis
+        'res_ratio': 5/0.74,  # res_ratio = resolution xy axis / resolution z axis
         'layers': (15,4),
         'in_chans': 1,
         'num_classes': 2,
