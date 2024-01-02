@@ -27,11 +27,11 @@ sh run_net.sh
 ``` 
 
 
-Synapse: We follow the data split of [TransUNet](https://github.com/Beckschen/TransUNet?tab=readme-ov-file) and use [nnUNet framework](https://github.com/MIC-DKFZ/nnUNet) for training and testing.  
+Synapse: We follow the data split of [TransUNet](https://github.com/Beckschen/TransUNet?tab=readme-ov-file) and use [nnUNet framework](https://github.com/MIC-DKFZ/nnUNet) for data preprocessing, training and testing.  
 
-MSD BraTS: We follow [VT-UNet](https://github.com/himashi92/VT-UNet) for training and testing.  
+MSD BraTS: We follow [VT-UNet](https://github.com/himashi92/VT-UNet) for data preprocessing, training and testing.  
 
-LiTS17: We follow [MedISeg framework](https://github.com/hust-linyi/MedISeg) for training and testing.
+LiTS17: We follow [MedISeg framework](https://github.com/hust-linyi/MedISeg) for data preprocessing, training and testing.
 
 <font size=2>Note: We provide the network configuration of all datasets in config.py </font>  
 

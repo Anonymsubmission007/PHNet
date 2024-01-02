@@ -17,7 +17,7 @@ def get_covid_config():
 
 def get_synapse_config():
     return {
-        'patch_size': (192, 192, 48),  # the size is automatically determined by nnUNet.
+        'patch_size': (192, 192, 48),  # the patch size and resolution is automatically determined by nnUNet preprocessing.
         'res_ratio': 4.0,
         'layers': (15,4),
         'in_chans': 1,
